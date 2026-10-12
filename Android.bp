@@ -585,6 +585,29 @@ cc_prebuilt_library_shared {
     compile_multilib: "both",
 }
 
+cc_prebuilt_library_shared {
+    name: "libutils-v34",
+    vendor: true,
+    strip: {
+        none: true,
+    },
+    shared_libs: [
+        "libc++",
+        "libcutils",
+        "liblog",
+        "libvndksupport",
+    ],
+    target: {
+        android_arm: {
+            srcs: ["vndk/v33/arm/libutils-v34.so"],
+        },
+        android_arm64: {
+            srcs: ["vndk/v33/arm64/libutils-v34.so"],
+        },
+    },
+    compile_multilib: "both",
+}
+
 cc_library_shared {
     name: "libutils_shim",
     shared_libs: ["libutils"],
